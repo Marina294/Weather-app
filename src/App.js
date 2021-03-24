@@ -2,6 +2,7 @@
 import Titles from "./components/Titles"
 import Form from "./components/Form"
 import Weather from "./components/Weather"
+import "./App.css";
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -34,7 +35,7 @@ const App = (props) => {
   }
 
   return (
-    <div>
+    <div className="wrap">
       <Titles />
       {/* <Form getWeather={props.getWeather} /> */}
       <Form 

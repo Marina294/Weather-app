@@ -1,0 +1,86 @@
+
+@import url("https://use.typekit.net/mzm8rqr.css");
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Voguing', sans-serif;
+  margin: 0;
+  background-color: #f9f771;
+}
+
+.wrap {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #845ec2;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  line-height: 2.4rem;
+}
+
+h1 {
+  font-size: 80px;
+}
+.temp {
+  margin: 10px;
+}
+h2 {
+  font-size: 40px;
+  color: #504d57;
+}
+h3 {
+    font-size: 30px;
+}
+p {
+  font-size: 16px;
+}
+span {
+  font-size: 20px;
+}
+
+button {
+  font: inherit;
+  background: #fd5076;
+  padding: 0.6rem 2.5rem;
+  color: white;
+  border: 1px solid #fd5076;
+  margin: 2rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  &:hover,
+  &:active {
+    background-color: #ff768d;
+    border: 1px solid #ff768d;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+img {
+  margin: 10px;
+}
+
+.title {
+  margin: 24px, 24px;
+}
+
+input[type=text] {
+  width: 80%;
+  max-width: 300px;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  background-color: #f9f771;
+  border-bottom: 4px solid #8842d5;  
+  font-size: 16px;
+  font-family: 'Voguing', sans-serif;
+}

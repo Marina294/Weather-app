@@ -1,10 +1,10 @@
 import React from "react";
-
+import "./title.css";
 
 const Titles = () => {
   return (
-    <div>
-      <h1>Check The Current Weather</h1>
+    <div className="title">
+      <h2>Check The Current Weather</h2>
       {/* <p>Check the world weather</p> */}
     </div>
   )

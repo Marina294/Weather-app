@@ -11,7 +11,7 @@ const Form = props => {
           <input
             type="text" 
             name='city' 
-            placeholder='City Name...' 
+            placeholder='City...' 
             value={props.cityName}
             onChange={(e)=>{props.onChangeCityName(e.target.value)}}
           />
@@ -19,7 +19,7 @@ const Form = props => {
           {/* <input
             type='text'
             name="country" 
-            placeholder="Country Name..." 
+            placeholder="Country..." 
             value='Canada' 
             value={props.countryName}
             onChange={(e)=>{props.onChangeCountryName(e.target.value)}}
