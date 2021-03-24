@@ -1,42 +1,30 @@
-// import React from 'react'
-import React, {useState} from 'react';
+import React from 'react'
+// import React, {useState} from 'react';
 // import "./form.css";
 
 const Form = props => {
 
-  const [city, setCity] = useState('Vancouver');
-  const [country, setCountry] = useState('Canada');
-
-  const changeCity = (e) => {
-    setCity(e.target.value)
-  }
-  const changeCountry = (e) => {
-    setCountry(e.target.value)
-  }
-
   return (
     <div className='container'>
       <div className='row justify-content-center'>
-        <form　onSubmit={props.getWeather}>
+        {/* <form　onSubmit={props.onSubmit}> */}
           <input
             type="text" 
             name='city' 
             placeholder='City...' 
-            spellcheck="true" 
-            value={city}
-            onChange={changeCity}
+            value={props.cityName}
+            onChange={(e)=>{props.onChangeCityName(e.target.value)}}
           />
           <input
             type='text'
             name="country" 
             placeholder="Country..." 
             value='Canada' 
-            spellcheck="true" 
-            value={country}
-            onChange={changeCountry}
+            value={props.countryName}
+            onChange={(e)=>{props.onChangeCountryName(e.target.value)}}
           />
-          <input type='submit' value='Check it!' />
-        </form>
+          <button onClick={props.onSubmit}>check it!</button>
+        {/* </form> */}
       </div>
     </div>
   )
