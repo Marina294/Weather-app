@@ -3,6 +3,7 @@ import Titles from "./components/Titles"
 import Form from "./components/Form"
 import Weather from "./components/Weather"
 
+
 const API_KEY = "a69f91a75eaef12893f8ceb6edd05841";
 
 class App extends React.Component {
@@ -37,7 +38,7 @@ class App extends React.Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: 'Plese enter the'
+        error: 'Plese enter the city name'
       });
     }
   }
