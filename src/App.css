@@ -27,40 +27,29 @@ h5 {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 80px;
+}
+
+.temp {
+  margin: 10px;
 }
 
 h2 {
-  font-size: 2.3rem;
+  font-size: 40px;
   color: #504d57;
 }
 
 h3 {
-  font-size: 1.875rem;
+  font-size: 30px;
 }
 
 p {
-  font-size: 1rem;
+  font-size: 16px;
+  color: #504d57;
 }
 
 span {
-  font-size: 1.25rem;
-}
-
-.title {
-  margin: 24px, 24px;
-}
-
-input[type=text] {
-  width: 80%;
-  max-width: 270px;
-  padding: 10px 10px;
-  margin: 10px 5px;
-  border: none;
-  background-color: #f9f771;
-  border-bottom: 3px solid #845ec2;
-  font-size: 1rem;
-  font-family: 'Voguing', sans-serif;
+  font-size: 20px;
 }
 
 button {
@@ -69,7 +58,7 @@ button {
   padding: 0.6rem 2.5rem;
   color: white;
   border: 1px solid #fd5076;
-  margin: 1.5rem 1rem;
+  margin: 2rem 1rem;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -84,10 +73,23 @@ button:focus {
 }
 
 img {
-  /* margin: 10px; */
-  width: 70px;
+  margin: 10px;
 }
 
+.title {
+  margin: 24px, 24px;
+}
 
-
+input[type=text] {
+  width: 80%;
+  max-width: 300px;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  background-color: #f9f771;
+  border-bottom: 4px solid #8842d5;
+  font-size: 16px;
+  font-family: 'Voguing', sans-serif;
+  color: #504d57;
+}
 /*# sourceMappingURL=App.css.map */

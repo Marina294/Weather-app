@@ -4,7 +4,7 @@ import Form from "./components/Form"
 import Weather from "./components/Weather"
 import "./App.css";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 
@@ -14,15 +14,28 @@ const App = (props) => {
   const [cityName, setCityName] =useState('Vancouver');
   const [countryName, setCountryName] =useState('Canada');
 
-  async function getWeather () {
+  // console.log(weather)
+  // useEffect(()=>{
+  //     if(props.cityName){
+  //       const getWeather = async() => {
+  //       const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName},&units=metric&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
+  //       const response = await axios.get(url);
+  //       console.log('Got Wether!',response)
+  //       setWeather(response.data)
+  //     }
+  //     getWeather()
+  //   }
+  // },[props.cityName])
+
+  const getWeather = useCallback(async () => {
     if(cityName && countryName){
       const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryName}&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
       const response = await axios.get(url);
       console.log('Got Wether!',response)
       setWeather(response.data)
     }
-  }
- 
+  }, [cityName, countryName])
+
   console.log(weather)
   useEffect(()=>{
     getWeather()
@@ -52,7 +65,6 @@ const App = (props) => {
         description={weather.weather[0].description}
         temperature={weather.main.temp}
         feelsLike={weather.main.feels_like}
-        humidity={weather.main.humidity}
         humidity={weather.main.humidity}
         winds={weather.wind.speed}
         // error={weather.error}
