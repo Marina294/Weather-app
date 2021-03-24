@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
+    "boostrap": "^2.0.0",
     "dotenv-webpack": "^7.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "weather-underground-icons": "git+https://github.com/manifestinteractive/weather-underground-icons.git"
   },
   "scripts": {
     "start": "react-scripts start",

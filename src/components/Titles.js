@@ -1,11 +1,11 @@
 import React from "react";
-
+import "./title.css";
 
 const Titles = () => {
   return (
-    <div>
-      <h1>Weather Finder</h1>
-      <p>Find out temperature, conditions and more...</p>
+    <div className="title">
+      <h2>Check The Current Weather</h2>
+      {/* <p>Check the world weather</p> */}
     </div>
   )
 }

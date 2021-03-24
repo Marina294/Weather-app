@@ -1,31 +1,93 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
-
+@import url("https://use.typekit.net/mzm8rqr.css");
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html,
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Voguing', sans-serif;
   margin: 0;
+  background-color: #f9f771;
+}
+
+.wrap {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #845ec2;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  line-height: 2.4rem;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 2.3rem;
+  color: #504d57;
+}
+
+h3 {
+  font-size: 1.875rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+span {
+  font-size: 1.25rem;
+}
+
+.title {
+  margin: 24px, 24px;
+}
+
+input[type=text] {
+  width: 80%;
+  max-width: 270px;
+  padding: 10px 10px;
+  margin: 10px 5px;
+  border: none;
+  background-color: #f9f771;
+  border-bottom: 3px solid #845ec2;
+  font-size: 1rem;
+  font-family: 'Voguing', sans-serif;
 }
 
 button {
   font: inherit;
-  background: #ff2058;
-  padding: 0.5rem 2rem;
+  background: #fd5076;
+  padding: 0.6rem 2.5rem;
   color: white;
-  border: 1px solid #ff2058;
-  margin: 0.5rem 0;
-  border-radius: 5px;
+  border: 1px solid #fd5076;
+  margin: 1.5rem 1rem;
+  border-radius: 12px;
   cursor: pointer;
 }
 
-button:hover,
-button:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
+button:hover, button:active {
+  background-color: #ff768d;
+  border: 1px solid #ff768d;
 }
 
 button:focus {
   outline: none;
 }
+
+img {
+  /* margin: 10px; */
+  width: 70px;
+}
+
+
+
+/*# sourceMappingURL=App.css.map */
