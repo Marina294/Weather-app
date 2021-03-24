@@ -3,11 +3,8 @@ import Titles from "./components/Titles"
 import Form from "./components/Form"
 import Weather from "./components/Weather"
 
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-
 
 
 const App = (props) => {
@@ -20,7 +17,7 @@ const App = (props) => {
     if(cityName && countryName){
       const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryName}&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
       const response = await axios.get(url);
-      console.log('got Wether!',response)
+      console.log('Got Wether!',response)
       setWeather(response.data)
     }
   }
@@ -48,15 +45,20 @@ const App = (props) => {
         onChangeCityName={setCityName} 
         onChangeCountryName={setCountryName} 
       />
-      <p>{weather.main.temp}</p>
-      {/* <Weather 
-        temperature={temperature}
-        city={city}
-        country={country}
-        humidity={humidity}
-        description={description}
-        error={error}
-      /> */}
+      {/* <p>{weather.main.temp}</p> */}
+      {/* <weather 
+      temprature={weather.main.temp} /> */}
+      <Weather 
+        city={cityName}
+        country={countryName}
+        description={weather.weather[0].description}
+        temperature={weather.main.temp}
+        feelsLike={weather.main.feels_like}
+        humidity={weather.main.humidity}
+        humidity={weather.main.humidity}
+        winds={weather.wind.speed}
+        error={weather.error}
+      />
     </div>
   )
 }

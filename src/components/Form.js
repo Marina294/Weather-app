@@ -29,6 +29,8 @@ const Form = props => {
     </div>
   )
   
+  // we do not need this comment out section
+  
   // const onload = () => {
   //   const obj = document.forms;
   //   if (!obj) return;
