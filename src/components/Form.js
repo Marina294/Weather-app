@@ -11,18 +11,19 @@ const Form = props => {
           <input
             type="text" 
             name='city' 
-            placeholder='City...' 
+            placeholder='City Name...' 
             value={props.cityName}
             onChange={(e)=>{props.onChangeCityName(e.target.value)}}
           />
-          <input
+          {/* Do we need Country Input? */}
+          {/* <input
             type='text'
             name="country" 
-            placeholder="Country..." 
+            placeholder="Country Name..." 
             value='Canada' 
             value={props.countryName}
             onChange={(e)=>{props.onChangeCountryName(e.target.value)}}
-          />
+          /> */}
           <button onClick={props.onSubmit}>check it!</button>
         {/* </form> */}
       </div>

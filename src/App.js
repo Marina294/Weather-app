@@ -32,7 +32,6 @@ const App = (props) => {
         <h1>Loading.....</h1>
     )
   }
-  // const iconUrl = `http://openweathermap.org/img/w/${cityData.weather[0].icon}.png`
 
   return (
     <div>
@@ -45,19 +44,17 @@ const App = (props) => {
         onChangeCityName={setCityName} 
         onChangeCountryName={setCountryName} 
       />
-      {/* <p>{weather.main.temp}</p> */}
-      {/* <weather 
-      temprature={weather.main.temp} /> */}
       <Weather 
         city={cityName}
         country={countryName}
+        icon={weather.weather[0].icon}
         description={weather.weather[0].description}
         temperature={weather.main.temp}
         feelsLike={weather.main.feels_like}
         humidity={weather.main.humidity}
         humidity={weather.main.humidity}
         winds={weather.wind.speed}
-        error={weather.error}
+        // error={weather.error}
       />
     </div>
   )
