@@ -1,75 +1,73 @@
-// import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import Titles from "./components/Titles"
 import Form from "./components/Form"
 import Weather from "./components/Weather"
 import "./App.css";
 
-import React, { useState, useEffect } from 'react';
-// import React, { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
+import { WeatherProvider, useWeatherDispatch, useWeatherState } from './context/WeatherProvider'
 
+const ErrorModal = () => {
+  const { error } = useWeatherState();
+  const dispatch = useWeatherDispatch();
 
-const App = (props) => {
-  // console.log(props)
-  const [weather, setWeather] =useState();
-  const [cityName, setCityName] =useState('Vancouver');
-  const [countryName, setCountryName] =useState('Canada');
+  const closeModal = () => dispatch({ type: "ERROR", payload: null })
 
+  if(!error) return null
 
-  // No useCallback
-  async function getWeather () {
-    if(cityName && countryName){
-      const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryName}&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
-      const response = await axios.get(url);
-      console.log('Got Wether!',response)
-      setWeather(response.data)
-    }
-  }
+  return (
+    <div className="modal-wrapper">
+      <div className="modal-content">
+        <p>{error}</p>
+        <button onClick={closeModal}>Ok</button>
+      </div>
+    </div>
+  )
+}
 
-  // console.log(weather)
-  useEffect(()=>{
-    getWeather()
-  },[])
+const WeatherDisplay = () => {
+  const [changingWeather, setChangingWeather] = useState(true)
+  const { weather, cityName, countryName } = useWeatherState();
+  const dispatch = useWeatherDispatch();
 
-  if(!weather){
-    return(
-        <h1>Loading.....</h1>
-    )
-  }
+  const changeWeather = () => setChangingWeather(true)
 
+  const changeCountry = () => dispatch({ type: "CHANGE_WEATHER", payload: { cityName, countryName } })
 
-  // // useCallback
-  // const getWeather = useCallback(async () => {
-  //   if(cityName && countryName){
-  //     const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryName}&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
-  //     const response = await axios.get(url);
-  //     console.log('Got Wether!',response)
-  //     setWeather(response.data)
-  //   }
-  // }, [cityName, countryName])
+  const changeCity = city => dispatch({ type: "SET_CITY_NAME", payload: city })
 
-  // console.log(weather)
-  // useEffect(()=>{
-  //   getWeather()
-  // },[])
-
-  // if(!weather){
-  //   return(
-  //       <h1>Loading.....</h1>
-  //   )
-  // }
-
+  useEffect(() => {
+    const fetchWeather = async () => {
+      setChangingWeather(false)
+      try {
+        const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryName}&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
+        const response = await axios.get(url);
   
+        console.log(weather)
+        dispatch({ type: "SET_WEATHER", payload: response.data })
+      } catch (error) {
+        console.log("error")
+        dispatch({ type: "ERROR", payload: "Error: This city is unavailable in our system" })
+      }
+    }
+
+    if(changingWeather) fetchWeather()
+  }, [changingWeather])
+
+  if(!weather) {
+    return <h1>Loading.....</h1>
+  }
+
   return (
     <div className="wrap">
       <Titles />
-      {/* <Form getWeather={props.getWeather} /> */}
       <Form 
         cityName={cityName} 
         countryName={countryName} 
-        onSubmit={getWeather} 
-        onChangeCityName={setCityName} 
-        onChangeCountryName={setCountryName} 
+        onSubmit={changeWeather} 
+        onChangeCityName={changeCity} 
+        onChangeCountryName={changeCountry} 
       />
       <Weather 
         city={cityName}
@@ -83,6 +81,15 @@ const App = (props) => {
         // error={weather.error}
       />
     </div>
+  )
+}
+
+const App = () => {
+  return (
+    <WeatherProvider>
+      <ErrorModal />
+      <WeatherDisplay />
+    </WeatherProvider>
   )
 }
 
