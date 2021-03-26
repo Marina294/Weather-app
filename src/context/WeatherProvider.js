@@ -4,10 +4,11 @@ const initialState = {
   weather: {
 		main: { temp: null },
 		wind: { speed: null },
+		sys: { country: null },
 		weather: [ {icon: ""} ]
 	},
   cityName: "Vancouver",
-  countryName: "Canada",
+//   countryName: "Canada",
 	error: null
 }
 
@@ -23,11 +24,11 @@ const reducer = (state, action) => {
         ...state,
         cityName: action.payload
       };
-    case "SET_COUNTRY_NAME":
-      return {
-        ...state,
-        countryName: action.payload
-      };
+    // case "SET_COUNTRY_NAME":
+    //   return {
+    //     ...state,
+    //     countryName: action.payload
+    //   };
 		case "ERROR":
 			return {
 				...state,
