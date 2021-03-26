@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 import Titles from "./components/Titles"
@@ -28,12 +28,13 @@ const ErrorModal = () => {
 
 const WeatherDisplay = () => {
   const [changingWeather, setChangingWeather] = useState(true)
-  const { weather, cityName, countryName } = useWeatherState();
+  // const { weather, cityName, countryName } = useWeatherState();
+  const { weather, cityName } = useWeatherState();
   const dispatch = useWeatherDispatch();
 
   const changeWeather = () => setChangingWeather(true)
 
-  const changeCountry = () => dispatch({ type: "CHANGE_WEATHER", payload: { cityName, countryName } })
+  // const changeCountry = () => dispatch({ type: "CHANGE_WEATHER", payload: { cityName, countryName } })
 
   const changeCity = city => dispatch({ type: "SET_CITY_NAME", payload: city })
 
@@ -41,7 +42,7 @@ const WeatherDisplay = () => {
     const fetchWeather = async () => {
       setChangingWeather(false)
       try {
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryName}&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
         const response = await axios.get(url);
   
         console.log(weather)
@@ -64,21 +65,20 @@ const WeatherDisplay = () => {
       <Titles />
       <Form 
         cityName={cityName} 
-        countryName={countryName} 
+        // countryName={countryName} 
         onSubmit={changeWeather} 
         onChangeCityName={changeCity} 
-        onChangeCountryName={changeCountry} 
+        // onChangeCountryName={changeCountry} 
       />
       <Weather 
         city={cityName}
-        country={countryName}
+        country={weather.sys.country}
         icon={weather.weather[0].icon}
         description={weather.weather[0].description}
         temperature={weather.main.temp}
         feelsLike={weather.main.feels_like}
         humidity={weather.main.humidity}
         winds={weather.wind.speed}
-        // error={weather.error}
       />
     </div>
   )
