@@ -11,7 +11,7 @@ const Weather = props => {
       <div>
         {
           props.icon && (
-            <img className='weather-img' src={`http://openweathermap.org/img/w/${props.icon}.png`} alt='' />
+            <img className='weather-img' src={`https://openweathermap.org/img/w/${props.icon}.png`} alt='' />
           )
         }
       </div>

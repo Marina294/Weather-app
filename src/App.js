@@ -52,7 +52,7 @@ const WeatherDisplay = () => {
     }
 
     if(changingWeather) fetchWeather()
-  }, [changingWeather])
+  }, [changingWeather, cityName, dispatch, weather])
 
   if(!weather) {
     return <h1>Loading.....</h1>
