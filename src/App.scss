@@ -5,6 +5,7 @@ $primary-color-2: #f9f771;
 $secondary-color: #fd5076;
 $secondary-color-hover: #ff768d;
 $text-color: #504d57;
+$select-color: #ffd753;
 $text-color-white: #ffffff;
 $font: 'Voguing', sans-serif;
 
@@ -24,11 +25,15 @@ h2,
 h3,
 h4,
 h5,
-p {
+p,
+span {
   font-family: $font;
   color: $primary-color-1;
   letter-spacing: 0px;
   text-transform: capitalize;
+  &::selection {
+    background: $select-color;
+  }
 
   margin-block-start:0; 
   margin-block-end:0; 
@@ -97,6 +102,9 @@ input[type=text] {
     background-color:transparent;
     transition: background-color 50000s ease-in-out 0s;
   }
+  &::selection {
+    background: $select-color;
+  }
 }
 
 button {
@@ -117,6 +125,9 @@ button {
   &:focus {
     font: $font;
     outline: none;
+  }
+  &::selection {
+    background: $select-color;
   }
 }
 
@@ -174,6 +185,9 @@ button {
       margin: 0.5rem;
       width: 65px;
     }  
+    &::selection {
+      background: $select-color;
+    }
   }
   &-temp {
     padding: 0rem 1rem 1rem 1rem;
