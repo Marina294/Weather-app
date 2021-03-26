@@ -45,10 +45,8 @@ const WeatherDisplay = () => {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=a69f91a75eaef12893f8ceb6edd05841&units=metric`
         const response = await axios.get(url);
   
-        console.log(weather)
         dispatch({ type: "SET_WEATHER", payload: response.data })
       } catch (error) {
-        console.log("error")
         dispatch({ type: "ERROR", payload: "Error: This city is unavailable in our system" })
       }
     }
@@ -87,7 +85,6 @@ const WeatherDisplay = () => {
 const App = () => {
   return (
     <WeatherProvider>
-      <p>test</p>
       <ErrorModal />
       <WeatherDisplay />
     </WeatherProvider>
