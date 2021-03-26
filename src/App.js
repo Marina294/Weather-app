@@ -87,6 +87,7 @@ const WeatherDisplay = () => {
 const App = () => {
   return (
     <WeatherProvider>
+      <p>test</p>
       <ErrorModal />
       <WeatherDisplay />
     </WeatherProvider>
